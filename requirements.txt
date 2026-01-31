@@ -1,0 +1,25 @@
+# PyProtect - Python Code Obfuscator
+# Requirements
+
+# This project uses only Python standard library modules.
+# No external dependencies are required.
+
+# Standard library modules used:
+# - base64 (encoding/decoding)
+# - marshal (bytecode serialization)
+# - zlib (compression)
+# - pathlib (file path handling)
+# - contextlib (context managers)
+# - sys (system arguments)
+# - random (random name generation)
+# - string (string constants)
+# - typing (type hints)
+
+# Minimum Python version required:
+# python>=3.6
+
+# Optional development dependencies (for testing and code quality):
+# pytest>=7.0.0
+# black>=22.0.0
+# flake8>=4.0.0
+# mypy>=0.950
