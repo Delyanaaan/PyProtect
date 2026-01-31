@@ -1,5 +1,3 @@
-
-
 import sys
 
 from pathlib import Path
@@ -38,28 +36,30 @@ if __name__ == "__main__":
                 if arg in Arguments.OBFISCATION_METHODS:
                     obf_method = arg
 
-            if input_file is None or output_file is None:
-                ToolsConsole.error("Input and output files must be specified.\n")
-                raise IndexError()
+            if output_file is None:
+                output_file = f"obfuscated_{Path(input_file).name}"
             
             if not Path(input_file).is_file():
-                ToolsConsole.error(f"Input file '{input_file}' does not exist.")
+                ToolsConsole.error(f"Input file '{input_file}' does not exist.\n")
+                ToolsConsole.examples()
                 sys.exit(1)
 
             if not input_file.endswith(".py"):
-                ToolsConsole.warn("Input file does not have a .py extension.")
+                ToolsConsole.warn("Input file does not have a .py extension.\n")
+                ToolsConsole.examples()
                 sys.exit(1)
 
-            result, code = Obfuscator(
+            status, result = Obfuscator(
                 input_file=Path(input_file),
                 output_file=Path(output_file),
                 obf_method=obf_method,
                 compress=compress
             ).obfuscate()
 
-            if result:
+            if status:
+                ToolsConsole.info("Compression enabled." if compress else "Compression disabled.")
                 ToolsConsole.success(f"Obfuscated file saving to '{output_file}'.")
-                ToolsConsole.save_file(code, output_file)
+                ToolsConsole.save_file(result, f'output/{output_file}')
                 sys.exit(0)
                 
         ToolsConsole.usage()
