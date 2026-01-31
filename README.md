@@ -27,8 +27,11 @@ PyProtect is a powerful Python code obfuscation tool that helps protect your sou
 git clone <repository-url>
 cd pyprotect
 
-# Install dependencies (minimal, only standard library)
-pip install -r requirements.txt
+# Requirements
+# Python >= 3.9 (standard library only)
+
+# Run
+python pyprotect.py
 ```
 
 ## Project Structure
