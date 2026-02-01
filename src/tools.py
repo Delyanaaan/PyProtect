@@ -68,7 +68,9 @@ class ToolsConsole:
             "\n    --bytecode            Obfuscate using marshal bytecode loader"
             "\n    --lambda              Obfuscate using nested lambda expressions"
             "\n    --hybrid              Hybrid obfuscation combining bytecode and lambda"
-            "\n    --compress            Enable compression for bytecode obfuscation"
+            "\n"
+            "\nAdditional Options:"
+            "\n    --compress            Enable compression (works with all methods)"
             "\n"
         )
     
@@ -96,3 +98,4 @@ class ToolsConsole:
                 ToolsConsole.success(f"File saved to '{output_path}'.")
         except Exception:
             ToolsConsole.error(f"Failed to save file to '{output_path}'.")
+
